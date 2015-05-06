@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "AFBlurView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIView *testView;
+@property (weak, nonatomic) IBOutlet AFBlurView *nibBlurView;
 
 @end
 
@@ -16,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AFBlurView * blurView =[AFBlurView installAndMakeSubview:self.testView];
+    self.nibBlurView.effectStyle =  UIBlurEffectStyleExtraLight;
+    blurView.vibrancyEnabled = NO;
     // Do any additional setup after loading the view, typically from a nib.
 }
 

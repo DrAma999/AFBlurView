@@ -14,6 +14,7 @@
 		650CCD3D1ABEF58E00D80DCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650CCD3C1ABEF58E00D80DCF /* Images.xcassets */; };
 		650CCD401ABEF58E00D80DCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650CCD3E1ABEF58E00D80DCF /* LaunchScreen.xib */; };
 		650CCD4C1ABEF58E00D80DCF /* BlurViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 650CCD4B1ABEF58E00D80DCF /* BlurViewTests.m */; };
+		650CCD571ABEF5A700D80DCF /* AFBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 650CCD561ABEF5A700D80DCF /* AFBlurView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		650CCD451ABEF58E00D80DCF /* BlurViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlurViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		650CCD4A1ABEF58E00D80DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650CCD4B1ABEF58E00D80DCF /* BlurViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurViewTests.m; sourceTree = "<group>"; };
+		650CCD551ABEF5A700D80DCF /* AFBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBlurView.h; sourceTree = "<group>"; };
+		650CCD561ABEF5A700D80DCF /* AFBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBlurView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				650CCD3C1ABEF58E00D80DCF /* Images.xcassets */,
 				650CCD3E1ABEF58E00D80DCF /* LaunchScreen.xib */,
 				650CCD2F1ABEF58E00D80DCF /* Supporting Files */,
+				650CCD551ABEF5A700D80DCF /* AFBlurView.h */,
+				650CCD561ABEF5A700D80DCF /* AFBlurView.m */,
 			);
 			path = BlurView;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			files = (
 				650CCD381ABEF58E00D80DCF /* ViewController.m in Sources */,
 				650CCD351ABEF58E00D80DCF /* AppDelegate.m in Sources */,
+				650CCD571ABEF5A700D80DCF /* AFBlurView.m in Sources */,
 				650CCD321ABEF58E00D80DCF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +418,7 @@
 				650CCD511ABEF58E00D80DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		650CCD521ABEF58E00D80DCF /* Build configuration list for PBXNativeTarget "BlurViewTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				650CCD541ABEF58E00D80DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
