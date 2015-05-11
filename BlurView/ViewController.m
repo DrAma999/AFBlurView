@@ -24,6 +24,7 @@
     
     // Install AFBlurView created in the storyboard
     [AFBlurView installAndMakeSubview:_alreadyCreatedViewFromNib];
+    
     // Create programmatically
     AFBlurView * blurView = [[AFBlurView alloc] initWithFrame:CGRectZero withEffectStyle:AFBlurEffectDark andVibrancy:NO];
     [self.view addSubview:blurView];
@@ -37,7 +38,7 @@
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.numberOfLines = 0;
-    label.text = @"AFBlurView crated from programmatically, dark style vibrancy OFF";
+    label.text = @"AFBlurView crated programmatically, dark style vibrancy OFF";
     label.textColor = [UIColor whiteColor];
     [self.viewProgrammaticallyWithOutVibrancy addSubview:label];
     view = NSDictionaryOfVariableBindings(label);

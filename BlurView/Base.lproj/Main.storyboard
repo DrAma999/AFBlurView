@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-fD-Me3">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.37647058820000001" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2B-8E-ue7">
@@ -102,10 +102,16 @@
                             <constraint firstItem="cwA-S5-oqH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Jf1-hf-v4q"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DbT-fD-Me3" secondAttribute="bottom" id="Xvi-iI-Uby"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cwA-S5-oqH" secondAttribute="bottom" constant="20" id="dI9-9M-MEK"/>
+                            <constraint firstItem="DbT-fD-Me3" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="pBq-v7-HUU"/>
                             <constraint firstItem="V2B-8E-ue7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="pxH-7u-rpw"/>
                             <constraint firstItem="V2B-8E-ue7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="sPs-7E-FDd"/>
                             <constraint firstItem="XBy-20-65o" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="xGD-GL-hTd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ivs-hB-78M"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
