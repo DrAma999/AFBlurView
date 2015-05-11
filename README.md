@@ -41,13 +41,13 @@ To change the blur effect, use the property:
 ```objective-c
 @property (assign, nonatomic)  AFBlurEffect  blurEffect;
 ```
-`AFBlurEffect` is a remap of the `UIVisualEffect` enumeration and has these effect:
+`AFBlurEffect` is a remap of the `UIVisualEffect` enumeration and has these effects:
 - AFBlurEffectExtraLight
 - AFBlurEffectLight
 - AFBlurEffectDark
 
 ### Install
-Just copy the two files `AFBlurView` `.h` `.m`
+Just copy the two files `AFBlurView` `.h` `.m` in your project.
 
 ## License 
 `AFBlurView` is released under MIT license. See LICENSE for details.
