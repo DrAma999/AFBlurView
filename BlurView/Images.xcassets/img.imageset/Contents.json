@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "img.png"
+      "filename" : "Tigers.jpeg"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "img-1.png"
+      "filename" : "Tigers@2x.jpeg"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "img-2.png"
+      "filename" : "Tigers@3x.jpeg"
     }
   ],
   "info" : {

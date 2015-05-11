@@ -12,13 +12,39 @@
 
 @property (weak, nonatomic) UIVisualEffectView * blurView;
 @property (weak, nonatomic) UIVisualEffectView * vibrancyView;
+@property (assign, nonatomic) UIBlurEffectStyle  effectStyle;
 @property (weak, nonatomic) UIView * mainContentView;
 @property (nonatomic, getter=areEffectViewAvailable) BOOL availableEffectView;
 - (void) stretchToSuperView:(UIView*) view ;
 
 @end
 
+static UIBlurEffectStyle convertAFBlurEffectIntoUIBlurEffetcStyle (AFBlurEffect blurEffect);
+
 @implementation AFBlurView
+
+static UIBlurEffectStyle convertAFBlurEffectIntoUIBlurEffetcStyle (AFBlurEffect blurEffect) {
+    UIBlurEffectStyle eff = UIBlurEffectStyleDark;
+    switch (blurEffect) {
+        case AFBlurEffectExtraLight:
+            eff = UIBlurEffectStyleExtraLight;
+            break;
+        case AFBlurEffectLight:
+            eff = UIBlurEffectStyleLight;
+            break;
+        case AFBlurEffectDark:
+            eff = UIBlurEffectStyleDark;
+            break;
+         default:
+            eff = UIBlurEffectStyleDark;
+            break;
+    }
+    return eff;
+}
+
+
+#pragma mark -
+#pragma mark Initilization methods
 
 - (void) awakeFromNib {
     [super awakeFromNib];
@@ -32,6 +58,64 @@
         }
     }
     [self swapConstraints:constraintsArray.copy];
+}
+
+- (instancetype) initWithFrame:(CGRect)frame {
+    self = [self initWithFrame:frame withEffectStyle:AFBlurEffectDark andVibrancy:YES];
+    return self;
+}
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _effectStyle = convertAFBlurEffectIntoUIBlurEffetcStyle(_blurEffect);
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void) commonInit {
+    
+    self.backgroundColor = [UIColor clearColor];
+    [self installViews];
+    UIView * mainView = [UIView new];
+    mainView.translatesAutoresizingMaskIntoConstraints = NO;
+    mainView.backgroundColor = [UIColor clearColor];
+    [self addSubviewToBlurContentView:mainView];
+    self.mainContentView = mainView;
+    [self stretchToSuperView:mainView];
+}
+
+#pragma mark Designated intializer
+
+- (instancetype) initWithFrame:(CGRect)frame withEffectStyle:(AFBlurEffect) style andVibrancy:(BOOL) vibrancyEnabled {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _effectStyle = convertAFBlurEffectIntoUIBlurEffetcStyle(style);
+        _blurEffect = style;
+        _vibrancyEnabled = YES;
+        [self commonInit];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark Custom getter/setter
+
+- (void) setBlurEffect:(AFBlurEffect)blurEffect {
+    if (_blurEffect == blurEffect) {
+        return;
+    }
+    UIView * mainView = self.mainContentView;
+    [self removeVibrancyView];
+    [self removeBlurView];
+    self.availableEffectView = NO;
+    _blurEffect = blurEffect;
+    _effectStyle = convertAFBlurEffectIntoUIBlurEffetcStyle(_blurEffect);
+    [self installViews];
+    [self addSubviewToBlurContentView:mainView];
+    self.mainContentView = mainView;
+    [self stretchToSuperView:mainView];
 }
 
 - (void) setVibrancyEnabled:(BOOL)vibrancyEnabled {
@@ -52,7 +136,9 @@
         self.vibrancyView = nil;
         [self addSubviewToBlurContentView:mainView];
     }
+    _vibrancyEnabled = vibrancyEnabled;
     self.mainContentView = mainView;
+    [self stretchToSuperView:mainView];
 
 }
 
@@ -70,23 +156,44 @@
     
 }
 
-- (void) installViews {
-    [self installBlurViewWithStyle:self.effectStyle];
-    [self installVibrancyView];
-    self.availableEffectView = YES;
+- (void) setBlurEffectStyleNumber:(NSInteger)blurEffectStyleNumber {
+    self.blurEffect = (AFBlurEffect) blurEffectStyleNumber;
 }
 
-- (void) commonInit {
-    _effectStyle = UIBlurEffectStyleDark;
-    _vibrancyEnabled = YES;
-    self.backgroundColor = [UIColor clearColor];
-    [self installViews];
-    UIView * mainView = [UIView new];
-    mainView.translatesAutoresizingMaskIntoConstraints = NO;
-    mainView.backgroundColor = [UIColor clearColor];
-    [self addSubviewToBlurContentView:mainView];
-    self.mainContentView = mainView;
-    [self stretchToSuperView:mainView];
+
+
+#pragma mark -
+#pragma mark Overridden methods
+
+
+- (void) addConstraints:(NSArray *)constraints {
+    if (![self areEffectViewAvailable]) {
+        [super addConstraints:constraints];
+    }
+    else {
+        [self addConstraintsToContentView:constraints];
+    }
+    
+}
+
+- (void) addSubview:(UIView *)view {
+    if (![self areEffectViewAvailable]) {
+        [super addSubview:view];
+    }
+    else {
+        [self.mainContentView addSubview:view];
+    }
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void) installViews {
+    [self installBlurViewWithStyle:self.effectStyle];
+    if ([self isVibrancyEnabled]) {
+        [self installVibrancyView];
+    }
+    self.availableEffectView = YES;
 }
 
 - (void) installVibrancyView {
@@ -116,31 +223,6 @@
     [self.blurView removeFromSuperview];
 }
 
-- (instancetype) initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (void) addSubview:(UIView *)view {
-    if (![self areEffectViewAvailable]) {
-        [super addSubview:view];
-    }
-    else {
-        [self.mainContentView addSubview:view];
-    }
-}
-
 - (void) addSubviewToBlurContentView:(UIView*)view {
     if (self.vibrancyView) {
         [self.vibrancyView.contentView addSubview:view];
@@ -156,16 +238,6 @@
     self.availableEffectView = NO;
     [self addSubview:view];
     self.availableEffectView = YES;
-}
-
-- (void) addConstraints:(NSArray *)constraints {
-    if (![self areEffectViewAvailable]) {
-        [super addConstraints:constraints];
-    }
-    else {
-        [self addConstraintsToContentView:constraints];
-    }
-
 }
 
 - (void) addConstraintsToContentView:(NSArray *)constraints {
@@ -189,7 +261,25 @@
     [self.mainContentView addConstraints:constraints];
 }
 
+- (void) swapConstraints:(NSArray*)constraints {
+    NSMutableArray * constrArray = @[].mutableCopy;
+    //Add those constraint to the superview or the same view
+    [constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint * constr, NSUInteger idx, BOOL *stop) {
+        NSLayoutConstraint * constraint = [NSLayoutConstraint constraintWithItem:constr.firstItem == self ? [constr.secondItem superview] : constr.firstItem
+                                                                       attribute:constr.firstAttribute
+                                                                       relatedBy:constr.relation
+                                                                          toItem:constr.secondItem == self ? [constr.firstItem superview] : constr.secondItem
+                                                                       attribute:constr.secondAttribute
+                                                                      multiplier:constr.multiplier
+                                                                        constant:constr.constant];
+        [constrArray addObject:constraint];
+    }];
+    [self addConstraintToMainContentView:constrArray];
+    
+}
 
+#pragma mark -
+#pragma mark Public methods
 
 + (instancetype) installAndMakeSubview:(UIView*) view {
     if (!view) {
@@ -239,25 +329,10 @@
     return effectView;
 }
 
-- (void) swapConstraints:(NSArray*)constraints {
-    NSMutableArray * constrArray = @[].mutableCopy;
-    //Add those constraint to the superview or the same view
-    [constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint * constr, NSUInteger idx, BOOL *stop) {
-        NSLayoutConstraint * constraint = [NSLayoutConstraint constraintWithItem:constr.firstItem == self ? [constr.secondItem superview] : constr.firstItem
-                                                                       attribute:constr.firstAttribute
-                                                                       relatedBy:constr.relation
-                                                                          toItem:constr.secondItem == self ? [constr.firstItem superview] : constr.secondItem
-                                                                       attribute:constr.secondAttribute
-                                                                      multiplier:constr.multiplier
-                                                                        constant:constr.constant];
-        [constrArray addObject:constraint];
-    }];
-    [self addConstraintToMainContentView:constrArray];
 
-}
+#pragma mark -
+#pragma mark Constraints Helper
 
-
-#pragma Constraints Helper
 #define IS_SIZE_ATTRIBUTE(ATTRIBUTE) [@[@(NSLayoutAttributeWidth), @(NSLayoutAttributeHeight)] containsObject:@(ATTRIBUTE)]
 
 
