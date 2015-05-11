@@ -24,6 +24,7 @@
     
     // Install AFBlurView created in the storyboard
     [AFBlurView installAndMakeSubview:_alreadyCreatedViewFromNib];
+    // Create programmatically
     AFBlurView * blurView = [[AFBlurView alloc] initWithFrame:CGRectZero withEffectStyle:AFBlurEffectDark andVibrancy:NO];
     [self.view addSubview:blurView];
     blurView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -33,6 +34,16 @@
     NSArray * horConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[blurView(120)]-20-|" options:0 metrics:nil views:view];
     [self.view addConstraints:vertConstraints];
     [self.view addConstraints:horConstraints];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    label.numberOfLines = 0;
+    label.text = @"AFBlurView crated from programmatically, dark style vibrancy OFF";
+    label.textColor = [UIColor whiteColor];
+    [self.viewProgrammaticallyWithOutVibrancy addSubview:label];
+    view = NSDictionaryOfVariableBindings(label);
+    vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[label]-8-|" options:0 metrics:nil views:view];
+    horConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[label]-8-|" options:0 metrics:nil views:view];
+    [self.viewProgrammaticallyWithOutVibrancy addConstraints:[vertConstraints arrayByAddingObjectsFromArray:horConstraints]];
     
 }
 

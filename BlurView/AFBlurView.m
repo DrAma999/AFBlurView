@@ -93,7 +93,7 @@ static UIBlurEffectStyle convertAFBlurEffectIntoUIBlurEffetcStyle (AFBlurEffect 
     if (self) {
         _effectStyle = convertAFBlurEffectIntoUIBlurEffetcStyle(style);
         _blurEffect = style;
-        _vibrancyEnabled = YES;
+        _vibrancyEnabled = vibrancyEnabled;
         [self commonInit];
     }
     return self;
