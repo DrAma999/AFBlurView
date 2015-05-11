@@ -38,7 +38,7 @@
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.numberOfLines = 0;
-    label.text = @"AFBlurView crated programmatically, dark style vibrancy OFF";
+    label.text = @"AFBlurView created programmatically, dark style vibrancy OFF";
     label.textColor = [UIColor whiteColor];
     [self.viewProgrammaticallyWithOutVibrancy addSubview:label];
     view = NSDictionaryOfVariableBindings(label);

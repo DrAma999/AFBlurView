@@ -68,7 +68,6 @@ static UIBlurEffectStyle convertAFBlurEffectIntoUIBlurEffetcStyle (AFBlurEffect 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _effectStyle = convertAFBlurEffectIntoUIBlurEffetcStyle(_blurEffect);
         [self commonInit];
     }
     return self;
