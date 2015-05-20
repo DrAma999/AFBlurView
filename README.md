@@ -1,4 +1,8 @@
 # AFBlurView
+
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![Version](https://img.shields.io/badge/version-0.1.0%20(005)-blue.svg)
+
 A UIView subclass that supports UIVisualEffect without all the boiler plate code needed to create one and nest the view hierarchy.
 It's really easy to use, you can use it in xib document, create one programmatically or install on an already placed view.
 
