@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -21,10 +21,10 @@
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.37647058820000001" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2B-8E-ue7">
-                                <rect key="frame" x="16" y="28" width="120" height="164"/>
+                                <rect key="frame" x="16" y="28" width="568" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIView created from nib, Dark style vibrancy ON" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMp-JQ-ILB">
-                                        <rect key="frame" x="8" y="8" width="104" height="148"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIView created from nib with installed AFBlurView programmatically, Dark style vibrancy ON" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMp-JQ-ILB">
+                                        <rect key="frame" x="8" y="8" width="552" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -34,17 +34,16 @@
                                 <constraints>
                                     <constraint firstItem="DMp-JQ-ILB" firstAttribute="top" secondItem="V2B-8E-ue7" secondAttribute="top" constant="8" id="8iL-gV-pga"/>
                                     <constraint firstItem="DMp-JQ-ILB" firstAttribute="leading" secondItem="V2B-8E-ue7" secondAttribute="leading" constant="8" id="Bfd-LV-Z39"/>
-                                    <constraint firstAttribute="height" constant="164" id="LKE-l0-dvr"/>
-                                    <constraint firstAttribute="width" constant="120" id="PeY-ks-DmH"/>
                                     <constraint firstAttribute="trailing" secondItem="DMp-JQ-ILB" secondAttribute="trailing" constant="8" id="ZFl-Wh-OXm"/>
+                                    <constraint firstAttribute="height" constant="60" id="jjf-gg-CaQ"/>
                                     <constraint firstAttribute="bottom" secondItem="DMp-JQ-ILB" secondAttribute="bottom" constant="8" id="stP-il-HsS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-20-65o" customClass="AFBlurView">
-                                <rect key="frame" x="464" y="28" width="120" height="164"/>
+                                <rect key="frame" x="16" y="109" width="568" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFBlurView created from nib, extra light style vibrancy ON" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIg-Ld-soT">
-                                        <rect key="frame" x="8" y="8" width="104" height="148"/>
+                                        <rect key="frame" x="8" y="8" width="552" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -53,9 +52,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="wIg-Ld-soT" firstAttribute="leading" secondItem="XBy-20-65o" secondAttribute="leading" constant="8" id="6Tb-ef-kUR"/>
-                                    <constraint firstAttribute="height" constant="164" id="81A-lG-mJL"/>
                                     <constraint firstItem="wIg-Ld-soT" firstAttribute="top" secondItem="XBy-20-65o" secondAttribute="top" constant="8" id="Lig-GU-C4z"/>
-                                    <constraint firstAttribute="width" constant="120" id="fGo-Gc-itn"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZHt-uN-1Mq"/>
                                     <constraint firstAttribute="trailing" secondItem="wIg-Ld-soT" secondAttribute="trailing" constant="8" id="nNe-96-i8o"/>
                                     <constraint firstAttribute="bottom" secondItem="wIg-Ld-soT" secondAttribute="bottom" constant="8" id="nsg-ek-A3O"/>
                                 </constraints>
@@ -67,10 +65,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-S5-oqH" customClass="AFBlurView">
-                                <rect key="frame" x="16" y="416" width="120" height="164"/>
+                                <rect key="frame" x="16" y="190" width="568" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFBlurView created from nib, dark style vibrancy OFF" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ian-7d-VDs">
-                                        <rect key="frame" x="8" y="8" width="104" height="148"/>
+                                        <rect key="frame" x="8" y="8" width="552" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.98823529409999999" green="0.37647058820000001" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -78,12 +76,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="4nu-Ol-82E"/>
+                                    <constraint firstAttribute="height" constant="60" id="39n-P9-6qh"/>
                                     <constraint firstAttribute="trailing" secondItem="ian-7d-VDs" secondAttribute="trailing" constant="8" id="6BF-79-JJX"/>
                                     <constraint firstAttribute="bottom" secondItem="ian-7d-VDs" secondAttribute="bottom" constant="8" id="CNv-pe-FbD"/>
                                     <constraint firstItem="ian-7d-VDs" firstAttribute="leading" secondItem="cwA-S5-oqH" secondAttribute="leading" constant="8" id="DOO-ew-cLE"/>
                                     <constraint firstItem="ian-7d-VDs" firstAttribute="top" secondItem="cwA-S5-oqH" secondAttribute="top" constant="8" id="F1u-YW-6FJ"/>
-                                    <constraint firstAttribute="height" constant="164" id="eg2-CP-lST"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="blurEffectStyleNumber">
@@ -96,16 +93,19 @@
                         <color key="backgroundColor" red="0.5450980392" green="0.7725490196" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DbT-fD-Me3" secondAttribute="trailing" id="5GR-tn-MVA"/>
-                            <constraint firstAttribute="trailing" secondItem="XBy-20-65o" secondAttribute="trailing" constant="16" id="Hrc-t5-Ft4"/>
+                            <constraint firstItem="XBy-20-65o" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="6XU-rf-y0c"/>
+                            <constraint firstItem="cwA-S5-oqH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="GBA-pt-g39"/>
                             <constraint firstItem="DbT-fD-Me3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ivs-hB-78M"/>
                             <constraint firstItem="DbT-fD-Me3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="J3e-XZ-fYt"/>
-                            <constraint firstItem="cwA-S5-oqH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Jf1-hf-v4q"/>
+                            <constraint firstAttribute="trailing" secondItem="cwA-S5-oqH" secondAttribute="trailing" constant="16" id="VvI-GJ-zHd"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DbT-fD-Me3" secondAttribute="bottom" id="Xvi-iI-Uby"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cwA-S5-oqH" secondAttribute="bottom" constant="20" id="dI9-9M-MEK"/>
+                            <constraint firstItem="XBy-20-65o" firstAttribute="top" secondItem="V2B-8E-ue7" secondAttribute="bottom" constant="21" id="aSo-pU-J95"/>
+                            <constraint firstAttribute="trailing" secondItem="V2B-8E-ue7" secondAttribute="trailing" constant="16" id="eIP-gl-7pl"/>
                             <constraint firstItem="DbT-fD-Me3" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="pBq-v7-HUU"/>
                             <constraint firstItem="V2B-8E-ue7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="pxH-7u-rpw"/>
+                            <constraint firstItem="cwA-S5-oqH" firstAttribute="top" secondItem="XBy-20-65o" secondAttribute="bottom" constant="21" id="reP-Um-3fM"/>
                             <constraint firstItem="V2B-8E-ue7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="sPs-7E-FDd"/>
-                            <constraint firstItem="XBy-20-65o" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="xGD-GL-hTd"/>
+                            <constraint firstAttribute="trailing" secondItem="XBy-20-65o" secondAttribute="trailing" constant="16" id="t0E-OJ-Ei5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

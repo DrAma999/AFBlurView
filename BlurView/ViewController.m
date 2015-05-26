@@ -30,9 +30,9 @@
     [self.view addSubview:blurView];
     blurView.translatesAutoresizingMaskIntoConstraints = NO;
     self.viewProgrammaticallyWithOutVibrancy = blurView;
-    NSDictionary * view = NSDictionaryOfVariableBindings(blurView);
-    NSArray * vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[blurView(164)]-20-|" options:0 metrics:nil views:view];
-    NSArray * horConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=0)-[blurView(120)]-20-|" options:0 metrics:nil views:view];
+    NSDictionary * view = NSDictionaryOfVariableBindings(blurView,_viewFromNibWithOutVibrancy);
+    NSArray * vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_viewFromNibWithOutVibrancy]-21-[blurView]" options:0 metrics:nil views:view];
+    NSArray * horConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-16-[blurView]-16-|" options:0 metrics:nil views:view];
     [self.view addConstraints:vertConstraints];
     [self.view addConstraints:horConstraints];
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
