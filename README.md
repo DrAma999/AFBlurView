@@ -20,7 +20,7 @@ Unfortunately the blur style is represented using integers:
 - 1 = LightBlur
 - 2 = DarkBlur
 
-### Installing it under an already existing `UIView`
+### Installing it under an already existing `UIView` **BETA**
 Using the class method:
 ```objective-c
 + (instancetype) installAndMakeSubview:(UIView*) view;
